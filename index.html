@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cache Simulator</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style=" margin-left: 20px">
+    <h1>Cache Simulator</h1>
+    <form>
+        <label for="policy">Policy</label>
+        <select id="policy" required>
+            <option value="FIFO">FIFO</option>
+            <option value="LRU">LRU</option>
+        </select><br>
+        <label for="frameNumbers"># of frames</label>
+        <select id="frameNumbers" required>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        <label for="inputJob">Input</label>
+        <input id="inputJob" size="1" required>
+        <button type="submit" id="addBtn">add</button>
+        <button type="submit" id="resetBtn">reset</button>
+    </form>
+
+    <p id="hitPercentage">Hit = </p>
+    <p id="missPercentage">Miss = </p>
+<div>
+    <table id="cacheTable">
+        <thead></thead>
+        <tbody></tbody>
+
+    </table>
+</div>
+    <!-- load renderer.js last to ensure I dont call anything without it being loaded in yet.
+     Also improves page load time since it loads script at the bottom-->
+    <script src="./renderer.js"></script>
+</body>
+</html>
